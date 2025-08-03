@@ -10,13 +10,13 @@ import './config/passport.js'; // Google OAuth strategy
 // Routes
 import authRoutes from './routes/auth.routes.js';
 import uploadRoutes from './routes/upload.routes.js';
-// import moduleRoutes from './routes/module.routes.js';
+import moduleRoutes from './routes/module.route.js';
 // import userRoutes from './routes/user.routes.js';
 
 // Initialize Express app
 const app = express();
 
-// ======= MIDDLEWARES =======
+// ======= MIDDLEWARES =======  
 app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -36,7 +36,7 @@ app.use(passport.session());
 // ======= ROUTES =======
 app.use('/api/auth', authRoutes);
 app.use('/api/upload', uploadRoutes);
-// app.use('/api/modules', moduleRoutes);
+app.use('/api/modules', moduleRoutes);
 // app.use('/api/user', userRoutes);
 
 // Connect to MongoDB

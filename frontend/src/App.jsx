@@ -39,7 +39,7 @@ function AppContent() {
           }
         >
           <Route index element={<ProfilePage />} />
-          <Route path="modules" element={<ModulePage />} />
+          <Route path="modules/*" element={<ModulePage />} />
         </Route>
 
         {/* Default Routes */}

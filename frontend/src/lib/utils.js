@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export const fetcher = async (url, options = {}) => {
@@ -19,3 +21,8 @@ export const fetcher = async (url, options = {}) => {
 
   return response.json();
 };
+
+export const api = axios.create({
+    baseURL: API_BASE_URL,
+    withCredentials: true,
+});

@@ -37,8 +37,8 @@ export function DashboardLayout() {
       <div className={`fixed inset-y-0 left-0 z-30 w-64 transform transition-transform duration-300 ease-in-out ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'
         } lg:translate-x-0 lg:static lg:inset-0 bg-white shadow-lg`}>
         <div className="flex flex-col h-full">
-          <div className="flex items-center justify-between h-16 px-4 border-b border-gray-200">
-            <span className="text-xl font-bold text-indigo-600">Safio</span>
+          <div className="flex items-center justify-between md:justify-center h-16 px-4 border-b border-gray-200">
+            <span className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-indigo-600">Safio</span>
             <button
               onClick={() => setSidebarOpen(false)}
               className="p-1 rounded-md lg:hidden text-gray-500 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"

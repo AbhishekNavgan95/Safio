@@ -1,12 +1,12 @@
 import Module from '../models/module.model.js';
-import { errorHandler } from '../utils/error.js';
+import '../models/question.model.js'; // Ensure Question model is registered
 
 export const createModule = async (req, res, next) => {
   try {
     const { title, description, levelRequired, xpReward, order, questions } = req.body;
     
     if (!title) {
-      return next(errorHandler(400, 'Title is required'));
+      return next(new Error('Title is required'));
     }
 
     const newModule = new Module({
@@ -29,7 +29,7 @@ export const updateModule = async (req, res, next) => {
   try {
     const module = await Module.findById(req.params.id);
     if (!module) {
-      return next(errorHandler(404, 'Module not found'));
+      return next(new Error('Module not found'));
     }
 
     const updatedModule = await Module.findByIdAndUpdate(
@@ -48,7 +48,7 @@ export const deleteModule = async (req, res, next) => {
   try {
     const module = await Module.findById(req.params.id);
     if (!module) {
-      return next(errorHandler(404, 'Module not found'));
+      return next(new Error('Module not found'));
     }
 
     await Module.findByIdAndDelete(req.params.id);
@@ -62,14 +62,14 @@ export const getModule = async (req, res, next) => {
   try {
     const module = await Module.findById(req.params.id).populate('questions');
     if (!module) {
-      return next(errorHandler(404, 'Module not found'));
+      return next(new Error('Module not found'));
     }
     res.status(200).json(module);
   } catch (error) {
     next(error);
   }
 };
-
+  
 export const getAllModules = async (req, res, next) => {
   try {
     const modules = await Module.find().sort({ order: 1 }).populate('questions');
