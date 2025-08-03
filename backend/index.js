@@ -9,6 +9,7 @@ import './config/passport.js'; // Google OAuth strategy
 
 // Routes
 import authRoutes from './routes/auth.routes.js';
+import uploadRoutes from './routes/upload.routes.js';
 // import moduleRoutes from './routes/module.routes.js';
 // import userRoutes from './routes/user.routes.js';
 
@@ -34,6 +35,7 @@ app.use(passport.session());
 
 // ======= ROUTES =======
 app.use('/api/auth', authRoutes);
+app.use('/api/upload', uploadRoutes);
 // app.use('/api/modules', moduleRoutes);
 // app.use('/api/user', userRoutes);
 
