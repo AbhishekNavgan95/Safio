@@ -103,7 +103,7 @@ export function ModuleForm() {
             </button>
 
             <div className="bg-white shadow overflow-hidden sm:rounded-lg">
-                <div className="px-4 py-5 sm:px-6 border-b border-gray-200">
+                <div className="px-4 py-5 sm:px-6 border border-gray-200">
                     <h3 className="text-lg leading-6 font-medium text-gray-900">
                         {isEditMode ? 'Edit Module' : 'Create New Module'}
                     </h3>
@@ -120,7 +120,7 @@ export function ModuleForm() {
                                     <input
                                         type="text"
                                         id="title"
-                                        className="block w-full px-2 py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                                        className="block w-full px-2 py-2 rounded-md border-gray-300 border focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
                                         placeholder="Enter module title"
                                         {...form.register('title')}
                                     />
@@ -139,7 +139,7 @@ export function ModuleForm() {
                                         type="number"
                                         id="levelRequired"
                                         min={1}
-                                        className="block w-full px-2 py-2   rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                                        className="block w-full px-2 py-2 border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
                                         {...form.register('levelRequired')}
                                     />
                                     {form.formState.errors.levelRequired && (
@@ -157,7 +157,7 @@ export function ModuleForm() {
                                         type="number"
                                         id="xpReward"
                                         min={0}
-                                        className="block w-full px-2 py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                                        className="block w-full px-2 py-2 border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
                                         {...form.register('xpReward')}
                                     />
                                     {form.formState.errors.xpReward && (
@@ -175,7 +175,7 @@ export function ModuleForm() {
                                         type="number"
                                         id="order"
                                         min={0}
-                                        className="block w-full px-2 py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                                        className="block w-full px-2 py-2 border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
                                         {...form.register('order')}
                                     />
                                     {form.formState.errors.order && (
@@ -192,7 +192,7 @@ export function ModuleForm() {
                                     <textarea
                                         id="description"
                                         rows={4}
-                                        className="block w-full px-2 py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                                        className="block w-full px-2 py-2 border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
                                         placeholder="Enter module description"
                                         {...form.register('description')}
                                     />

@@ -6,6 +6,7 @@ import {
   deleteModule,
   getModule,
   getAllModules,
+  reorderModules,
 } from '../controllers/module.controller.js';
 
 const router = express.Router();
@@ -14,6 +15,9 @@ const router = express.Router();
 router.post('/', isAdmin, createModule);
 router.put('/:id', isAdmin, updateModule);
 router.delete('/:id', isAdmin, deleteModule);
+
+// Reorder modules (admin only)
+router.post('/reorder', isAdmin, reorderModules);
 
 // Public routes
 router.get('/', getAllModules);

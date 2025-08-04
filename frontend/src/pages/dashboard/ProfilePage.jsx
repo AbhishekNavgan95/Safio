@@ -23,7 +23,7 @@ export function ProfilePage() {
             <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 space-y-4 sm:gap-4 sm:px-6">
               <dt className="text-sm font-medium text-gray-500">Profile Picture</dt>
               <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                <img className="h-20 w-20 rounded-full" src={user.avatar} alt={user.name} />
+                <img className="h-20 w-20 rounded-full border " src={user.avatar} alt={user.name+"'s Profile"} />
               </dd>
             </div>
             <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">

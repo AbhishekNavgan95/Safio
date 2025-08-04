@@ -1,16 +1,23 @@
 import { useState } from 'react';
+import ConfirmModal from '../components/common/ConfirmModal';
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { LogOut, User, Home, Menu, X, Settings } from 'lucide-react';
 
 export function DashboardLayout() {
   const { user, logout } = useAuth();
+  const [logoutModalOpen, setLogoutModalOpen] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const navigate = useNavigate();
 
   const handleLogout = () => {
     logout();
     navigate('/login');
+  };
+
+  const confirmLogout = () => {
+    handleLogout();
+    setLogoutModalOpen(false);
   };
 
   // Navigation items based on user role
@@ -101,7 +108,7 @@ export function DashboardLayout() {
 
             <div className="flex items-center">
               <button
-                onClick={handleLogout}
+                onClick={() => setLogoutModalOpen(true)}
                 className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-900"
                 title="Sign out"
               >
@@ -118,6 +125,14 @@ export function DashboardLayout() {
             <Outlet />
           </div>
         </main>
+      <ConfirmModal
+        open={logoutModalOpen}
+        title="Sign out?"
+        description="Are you sure you want to sign out?"
+        confirmLabel="Sign out"
+        onConfirm={confirmLogout}
+        onClose={() => setLogoutModalOpen(false)}
+      />
       </div>
     </div>
   );

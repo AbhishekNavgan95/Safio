@@ -1,5 +1,5 @@
 import { Loader2, Lock } from 'lucide-react';
-import { useAuth } from '../../contexts/AuthContext';
+import { useAuth } from '../contexts/AuthContext';
 
 export function LoginPage() {
   const { login, loading } = useAuth();

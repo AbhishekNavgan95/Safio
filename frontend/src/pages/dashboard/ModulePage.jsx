@@ -1,6 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { ModuleList } from './modules/ModuleList';
-import { ModuleForm } from './modules/ModuleForm';
+import { ModuleList } from '../../components/dashboard/modules/ModuleList';
+import { ModuleForm } from '../../components/dashboard/modules/ModuleForm';
 
 export function ModulePage() {
   return (

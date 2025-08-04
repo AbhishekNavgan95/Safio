@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useAuth } from './contexts/AuthContext';
-import { LoginPage } from './components/auth/LoginPage';
-import { ProfilePage } from './components/dashboard/ProfilePage';
+import { LoginPage } from './pages/LoginPage';
 import { ProtectedRoute } from './components/auth/ProtectedRoute';
 import { DashboardLayout } from './layouts/DashboardLayout';
 import { AuthProvider } from './contexts/AuthContext';
-import { ModulePage } from './components/dashboard/ModulePage';
+import { ModulePage } from './pages/dashboard/ModulePage';
+import { ProfilePage } from './pages/dashboard/ProfilePage';
 // Dashboard Pages
 function DashboardHome() {
   return (

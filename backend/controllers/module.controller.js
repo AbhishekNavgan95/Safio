@@ -78,3 +78,28 @@ export const getAllModules = async (req, res, next) => {
     next(error);
   }
 };
+
+export const reorderModules = async (req, res, next) => {
+  try {
+    const { modules } = req.body;
+    
+    if (!Array.isArray(modules)) {
+      return next(new Error('Modules must be an array'));
+    }
+
+    const bulkOps = modules.map(module => ({
+      updateOne: {
+        filter: { _id: module._id },
+        update: { $set: { order: module.order } }
+      }
+    }));
+
+    await Module.bulkWrite(bulkOps);
+    
+    // Return the updated list of modules in the new order
+    const updatedModules = await Module.find().sort({ order: 1 }).populate('questions');
+    res.status(200).json(updatedModules);
+  } catch (error) {
+    next(error);
+  }
+};
